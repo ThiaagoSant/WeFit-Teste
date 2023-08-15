@@ -124,7 +124,6 @@ export const ContentImg = styled.div`
     row-gap: 8px;
     flex-direction: column;
     width: 80px;
-    /* background-color: blue; */
 
     p {
       color: #2f2e41;
@@ -223,7 +222,6 @@ export const ContentMobile = styled.div`
   }
   p:nth-of-type(2) {
     font-size: 16px;
-    /* grid-column: 3; */
   }
 `;
 

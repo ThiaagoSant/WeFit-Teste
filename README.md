@@ -1,27 +1,31 @@
-# React + TypeScript + Vite
+# WeMovies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório com o código fonte desenvolvido para o teste de Desenvolvedor Front-End na WeFit, onde criei um E-commerce de filmes utilizando React, React Query, Context API, React Router, Axios e Styled Components.
 
-Currently, two official plugins are available:
+## Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Você precisará ter apenas o [NodeJS](https://nodejs.org) instalado na sua máquina, e após isso, clonar este repositório:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```sh
+  $ git clone https://github.com/ThiaagoSant/WeFit-Test.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Depois disso, acesse a pasta com o repositório e instale as dependências executando o seguinte comando:
+
+```sh
+  $ npm install # ou yarn install
+```
+
+## Executando a aplicação
+
+Execute o comando a baixo para inicializar o servidor de desenvolvimento:
+
+```sh
+  $ npm run dev # ou yarn dev
+```
+
+Em outro terminal, execute o comando a baixo para inicializar o mock:
+
+```sh
+  $ npx json-server -w -p 3333 ./mock/db.json # ou yarn json-server -w -p 3333 ./mock/db.json
+```

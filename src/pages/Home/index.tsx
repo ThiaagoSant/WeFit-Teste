@@ -9,11 +9,10 @@ import { Product } from "../../services/types";
 const Home = () => {
   const { data: products, isLoading } = useGetProducts();
   const cartService = useContext(ShoppingCartContext);
+  const cartItems = cartService.cart;
 
   const renderCards = products?.map((product: Product) => {
-    const quantity = cartService.cart.find(
-      ({ id }) => id === product.id
-    )?.quantity;
+    const quantity = cartItems.find(({ id }) => id === product.id)?.quantity;
 
     return (
       <Card
