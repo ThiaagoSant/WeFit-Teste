@@ -5,14 +5,14 @@ import {
   ShoppingCartContextData,
   ShoppingCartProviderType,
 } from "./types";
+import { RoutesEnum } from "../routes/routes";
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData);
 
 export const ShoppingCartProvider = ({
   children,
 }: ShoppingCartProviderType) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-
+  const [cart, setCart] = useState<Array<CartItem>>([]);
   const total = useMemo(
     () =>
       cart.reduce(
@@ -21,6 +21,7 @@ export const ShoppingCartProvider = ({
       ),
     [cart]
   );
+
   const addToCart = (product: Product) => {
     const existingCartItem = cart.find(({ id }) => product?.id === id);
 
@@ -64,8 +65,9 @@ export const ShoppingCartProvider = ({
     setCart(newCart);
   };
 
-  const clearCart = () => {
+  const clearCart = (navigate: any) => {
     setCart([]);
+    navigate(RoutesEnum.Purchased);
   };
 
   const getters = {

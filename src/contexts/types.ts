@@ -17,7 +17,7 @@ export interface ShoppingCartContextData {
   addToCart(product: Product): void;
   removeToCart(productId: number): void;
   decreaseQuantity(productId: number): void;
-  clearCart(): void;
+  clearCart(navigate: any): void;
   setCart: SetStateAction<Dispatch<CartItem[]>>;
   cart: CartItem[];
   total: number;

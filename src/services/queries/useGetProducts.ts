@@ -17,7 +17,7 @@ const getProducts = async () => {
   return data;
 };
 
-const useGetProducts = (options?: GetAllProductsOptions) =>
+const useGetProducts = (options?: GetAllProductsOptions): any =>
   useQuery<GetMoviesResponse, AxiosError, GetMoviesResponse>(
     getProductsQueryKey,
     getProducts,

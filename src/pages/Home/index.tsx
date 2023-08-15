@@ -4,14 +4,13 @@ import useGetProducts from "../../services/queries/useGetProducts";
 import Card from "../../components/Card";
 
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
+import { Product } from "../../services/types";
 
-interface HomeProps {}
-
-const Home = (props: HomeProps) => {
+const Home = () => {
   const { data: products, isLoading } = useGetProducts();
   const cartService = useContext(ShoppingCartContext);
 
-  const renderCards = products?.map((product) => {
+  const renderCards = products?.map((product: Product) => {
     const quantity = cartService.cart.find(
       ({ id }) => id === product.id
     )?.quantity;
