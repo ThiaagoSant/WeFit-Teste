@@ -5,9 +5,10 @@ import { RoutesEnum } from "../../routes/routes";
 
 interface PresentationProps {
   callback(route: string): void;
+  total: number;
 }
 
-const Presentation = ({ callback }: PresentationProps) => {
+const Presentation = ({ callback, total }: PresentationProps) => {
   return (
     <Header>
       <p>WeMovies</p>
@@ -15,7 +16,7 @@ const Presentation = ({ callback }: PresentationProps) => {
       <nav onClick={() => callback(RoutesEnum.Cart)}>
         <ul>
           <li>Meu Carrinho</li>
-          <li>0 Itens</li>
+          <li>{total} Itens</li>
         </ul>
 
         <img src={CartIcon} />

@@ -1,3 +1,4 @@
+import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
 import Router from "./routes/index";
 import GlobalStyles from "./styles/global";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -8,7 +9,9 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <GlobalStyles />
-        <Router />
+        <ShoppingCartProvider>
+          <Router />
+        </ShoppingCartProvider>
       </QueryClientProvider>
     </>
   );

@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Presentation from "./presentation";
-import useGetAllProducts from "../../services/queries/useGetProducts";
+import useGetProducts from "../../services/queries/useGetProducts";
 import Card from "../../components/Card";
+
+import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 
 interface HomeProps {}
 
 const Home = (props: HomeProps) => {
-  const { data: products, isLoading } = useGetAllProducts();
-  const renderCards = products?.map((product) => (
-    <Card
-      key={product?.id}
-      product={product}
-      callback={() => {}}
-      quantity={0}
-    />
-  ));
+  const { data: products, isLoading } = useGetProducts();
+  const cartService = useContext(ShoppingCartContext);
+
+  const renderCards = products?.map((product) => {
+    const quantity = cartService.cart.find(
+      ({ id }) => id === product.id
+    )?.quantity;
+
+    return (
+      <Card
+        key={product?.id}
+        product={product}
+        callback={() => cartService.addToCart(product)}
+        quantity={quantity}
+      />
+    );
+  });
   return React.createElement(Presentation, { isLoading, renderCards });
 };
 

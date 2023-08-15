@@ -4,8 +4,8 @@ import { Button, Content } from "./styles";
 
 interface CardProps {
   product: Product | undefined;
-  quantity: number;
-  callback: () => void;
+  quantity: number | undefined;
+  callback(): void;
 }
 const Card = ({ product, quantity, callback }: CardProps) => {
   const formattedNumber = product?.price.toLocaleString("pt-BR", {
@@ -22,10 +22,14 @@ const Card = ({ product, quantity, callback }: CardProps) => {
       <p>{product?.title}</p>
       <p>{formattedNumber}</p>
 
-      <Button onClick={callback}>
+      <Button
+        disabled={quantity ? true : false}
+        quantity={quantity}
+        onClick={callback}
+      >
         <div>
           <img src={shoppingCardIcon} />
-          <p>{quantity}</p>
+          <p>{quantity ? 1 : 0}</p>
         </div>
 
         <p>{quantity ? "ITEM ADICIONADO" : "ADICIONAR AO CARRINHO"}</p>

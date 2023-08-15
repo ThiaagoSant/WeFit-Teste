@@ -3,12 +3,5 @@ export interface Product {
   price: number;
   title: string;
   image: string;
+  quantity?: number;
 }
-
-// export interface CartItem extends Product {
-//   quantity: number;
-// }
-
-// export interface CartState {
-//   items: CartItem[];
-// }

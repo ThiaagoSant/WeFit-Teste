@@ -41,14 +41,18 @@ export const Content = styled.div`
   }
 `;
 
-export const Button = styled.button`
+interface ButtonProps {
+  quantity?: number | undefined;
+}
+
+export const Button = styled.button<ButtonProps>`
   align-items: center;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 48px;
   border-radius: 4px;
-  background: #009edd;
+  background: ${({ quantity }) => (quantity ? "#039B00" : "#009edd")};
   column-gap: 12px;
   cursor: pointer;
 
