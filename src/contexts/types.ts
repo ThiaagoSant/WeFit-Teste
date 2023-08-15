@@ -15,6 +15,10 @@ export interface ShoppingCartProviderType {
 
 export interface ShoppingCartContextData {
   addToCart(product: Product): void;
+  removeToCart(productId: number): void;
+  decreaseQuantity(productId: number): void;
+  clearCart(): void;
   setCart: SetStateAction<Dispatch<CartItem[]>>;
   cart: CartItem[];
+  total: number;
 }
